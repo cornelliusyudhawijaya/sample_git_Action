@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 
-train = pd.read_csv('heart_train.csv')
-test = pd.read_csv('heart_test.csv')
+train = pd.read_csv('data/heart_train.csv')
+test = pd.read_csv('data/heart_test.csv')
 
 # Train the Model 
 clf = LogisticRegression(penalty='l2', C=0.1)
