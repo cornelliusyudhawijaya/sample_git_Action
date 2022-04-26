@@ -10,7 +10,7 @@ test = pd.read_csv('data/heart_test.csv')
 clf = LogisticRegression(penalty='l2', C=0.1)
 clf.fit(train.drop('target', axis = 1), train['target'])
 y_pred = clf.predict(test.drop('target', axis = 1))
-y_pred_proba = clf.predict_proba(X_test)[::,1]
+y_pred_proba = clf.predict_proba(test.drop('target', axis = 1))[::,1]
 
 # Test the model using AOC-ROC Graph
 def auc_roc_plot(y_test, y_pred_proba):
@@ -25,7 +25,6 @@ def accuracy(y_test, y_pred):
   """
   Calculuates accuracy y_test and y_preds.
   """
-  y_pred = clf.predict(test.drop('target', axis = 1))
   return metrics.accuracy(y_test, y_pred)
 
 auc_roc_plot(test['target'],y_pred_proba)  
