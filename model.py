@@ -25,12 +25,12 @@ def accuracy(y_test, y_pred):
   """
   Calculuates accuracy y_test and y_preds.
   """
-  return metrics.accuracy(y_test, y_pred)
+  return metrics.accuracy_score(y_test, y_pred)
 
 auc_roc_plot(test['target'],y_pred_proba)  
-accuracy_score = accuracy(test['target'], y_pred)
-print('Accuracy Score: ',accuracy_score)
+accuracy = accuracy(test['target'], y_pred)
+print('Accuracy Score: ',accuracy)
 
 # Write metrics to file
 with open('metrics.txt', 'w') as outfile:
-    outfile.write(f'\nAccuracy Score = {accuracy_score}.')
+    outfile.write(f'\nAccuracy Score = {accuracy}.')
