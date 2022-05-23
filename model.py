@@ -6,7 +6,7 @@ from sklearn import metrics
 train = pd.read_csv('data/heart_train.csv')
 test = pd.read_csv('data/heart_test.csv')
 
-# Train the Model 
+# Train the Model  #
 clf = LogisticRegression(penalty='l2', C=0.1)
 clf.fit(train.drop('target', axis = 1), train['target'])
 y_pred = clf.predict(test.drop('target', axis = 1))
